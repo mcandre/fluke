@@ -1,0 +1,33 @@
+nav {
+    padding: 1em;
+}
+
+#title {
+    display: inline;
+    vertical-align: middle;
+}
+
+#logo {
+    margin-right: 0.5em;
+}
+
+article {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#hud {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+}
+
+#band-menu, #impedance-plot {
+    padding: 1em 4em 1em 0;
+}
+
+#bands label {
+    padding-left: 0.5em;
+}

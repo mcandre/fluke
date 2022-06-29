@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <head>
+        <title>Fluke</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <nav>
+            <h1 id="title">
+                <a href="">
+                <img id="logo" src="fluke.png" width="128" height="69" alt="flounder">
+                <span>Fluke</span>
+                </a>
+            </h1>
+        </nav>
+        <article>
+            <div id="hud">
+                <div id="band-menu">
+                    <div id="band-options">
+                        <p><h2>Bands</h2></p>
+                        <div id="bands"></div>
+                    </div>
+                </div>
+                <canvas id="impedance-plot" width="640" height="360"></canvas>
+            </div>
+        </article>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/patternomaly/1.3.2/patternomaly.js" integrity="sha512-gNM40ajr/bSi3Af8i6D4dV2CUWZrkm2zhgeWf46H91zOwWoH8Wwsyf6kQ4syfNyOrnjATrjKkP4ybWD7eKp2KA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script type="text/javascript" src="fluke.js"></script>
+    </body>
+</html>
