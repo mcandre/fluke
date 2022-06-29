@@ -3,11 +3,7 @@ nav, footer, h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
-    padding: 1em; 0 0 1em;
-}
-
-article {
-    padding-top: 8em;
+    padding: 1em 0 0 1em;
 }
 
 #bands label {
