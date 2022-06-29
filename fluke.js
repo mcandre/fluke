@@ -137,7 +137,6 @@ function plot() {
                         }
                     },
                     y: {
-                        beginAtZero: true,
                         ticks: {
                             display: false
                         },
