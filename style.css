@@ -3,15 +3,14 @@ nav, footer, h1, h2, h3, h4, h5, h6 {
 }
 
 nav {
-    padding: 2em 0 0 2em;
+    padding: 1em; 0 0 1em;
 }
 
 article {
-    padding-top: 4em;
+    padding-top: 8em;
 }
 
 #bands label {
-    font-size: 1.125vw;
     padding-left: 0.5em;
 }
 
