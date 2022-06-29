@@ -8,7 +8,6 @@ a:hover {
 }
 
 body {
-    margin: 0;
     overflow: hidden;
     color: #dddddd;
 }
@@ -30,7 +29,7 @@ body {
         background-position: -400px;
     }
     50% {
-        background-position: -200px;    /* Moving up sprite */
+        background-position: -200px; /* Moving up sprite */
     }
     60% {
         background-position: -0px; /* Straight on sprite */
@@ -72,12 +71,9 @@ body {
     }
 }
 .ocean {
-    position: relative;
     width: 100vw;
     height: 100vh;
     background-image: linear-gradient(0deg, #182848, #2980b9)
-    /* z-index: 999999999; */
-    /* opacity: 0.25; */
 }
 
 .bubble {
