@@ -15,5 +15,6 @@ FreeBSD
 # CREDITS
 
 * [NotSoRandomWire](https://www.on6zq.be/w/index.php/Scilab/NotSoRandomWire)
+* [ocean](https://codepen.io/codypearce/pen/VwYOGzq)
 
 ![flounder](fluke.png)

@@ -56,24 +56,58 @@ function generateData() {
     }
 }
 
+const chartAreaBorder = {
+    id: 'chartAreaBorder',
+    beforeDraw(chart, args, options) {
+        const { ctx, chartArea: { left, top, width, height } } = chart;
+        ctx.save();
+        ctx.strokeStyle = options.borderColor;
+        ctx.lineWidth = options.borderWidth;
+        ctx.setLineDash(options.borderDash || []);
+        ctx.lineDashOffset = options.borderDashOffset;
+        ctx.strokeRect(left, top, width, height);
+        ctx.restore();
+    }
+};
+
 function plot() {
     generateData();
 
     if (c == null) {
         const ctx = document.getElementById('impedance-plot').getContext('2d');
+
         c = new Chart(ctx, {
             type: 'bar',
+            plugins: [chartAreaBorder],
             options: {
                 animation: false,
+                plugins: {
+                    chartAreaBorder: {
+                        borderColor: '#bbbbbb'
+                    },
+                    legend: {
+                        labels: {
+                            color: '#dddddd'
+                        }
+                    },
+                    tooltip: {
+                        enabled: false
+                    }
+                },
                 scales: {
                     xAxes: {
                         title: {
                             display: true,
-                            text: 'cm'
+                            text: 'cm',
+                            color: '#dddddd'
                         },
                         ticks: {
                             autoSkip: true,
-                            maxTicksLimit: 20
+                            maxTicksLimit: 20,
+                            color: '#dddddd'
+                        },
+                        grid: {
+                            display: false
                         }
                     },
                     y: {
@@ -84,9 +118,6 @@ function plot() {
                             display: false
                         }
                     }
-                },
-                plugins: {
-                    legend: {}
                 }
             },
             data: {
