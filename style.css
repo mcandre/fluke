@@ -11,21 +11,12 @@ nav {
     vertical-align: middle;
 }
 
+#title:hover img {
+    transform: skew(10deg, 10deg);
+}
+
 #logo {
     margin-right: 0.5em;
-}
-
-#hud {
-    margin: 0 auto;
-    width: 50%;
-}
-
-.flex {
-    display: flex;
-}
-
-#band-menu, #impedance-plot {
-    padding: 1em 4em 1em 0;
 }
 
 #bands label {
