@@ -31,7 +31,7 @@ function generateData() {
 
     for (let i = 1; i <= maxWireLengthCM; i++) {
         labels.push(i);
-        m.push(0);
+        m.push(false);
     }
 
     if (Object.keys(selectedBands) < 1) {
@@ -49,7 +49,7 @@ function generateData() {
                 halfWaveUpperBoundKHz = Math.min(halfWaveUpperBoundKHz, maxWireLengthCM);
 
                 for (let j = halfWaveUpperBoundKHz - 1; j >= halfWaveLowerBoundKHz; j--) {
-                    m[j] = 1;
+                    m[j] = true;
                 }
             }
         }
@@ -98,23 +98,39 @@ function plot() {
                     tooltip: {
                         intersect: false,
                         mode: 'index',
-                        position: 'customPositioner'
+                        position: 'customPositioner',
+                        callbacks: {
+                            title: function(context) {
+                                let x = 1 + context[0].dataIndex;
+                                return x.toString().padStart(4, ' ') + ' cm';
+                            },
+                            label: function(context) {
+                                let label = 'false';
+
+                                if (context.parsed.y !== null && context.parsed.y) {
+                                    label = 'true ';
+                                }
+
+                                return label;
+                            }
+                        }
                     }
                 },
                 scales: {
-                    xAxes: {
+                    x: {
                         type: 'linear',
                         title: {
                             display: true,
                             text: 'Antenna Lead (cm)',
                             color: '#dddddd'
                         },
-                        min: 1000,
+                        min: 500,
                         ticks: {
                             callback: function(value, index, ticks) {
-                                return value.toString();
+                                return value.toString().padStart(4, ' ');
                             },
-                            color: '#dddddd',
+                            align: 'center',
+                            color: '#dddddd'
                         },
                         grid: {
                             display: false
