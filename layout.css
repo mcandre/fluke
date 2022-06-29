@@ -1,0 +1,39 @@
+nav, footer, h1, h2, h3, h4, h5, h6 {
+    font-family: 'League Gothic', sans-serif;
+}
+
+body {
+    color: #dddddd;
+}
+
+a:link, a:visited {
+    color: yellow;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    padding: 1em 0 0 1em;
+}
+
+article {
+    margin-top: 8em;
+}
+
+footer {
+    padding-right: 1em;
+}
+
+.ocean {
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(0deg, #182848, #2980b9)
+}
+
+
+#bands label {
+    padding-left: 0.5em;
+}
