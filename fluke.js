@@ -136,7 +136,7 @@ function plot() {
     c.update();
 }
 
-const bandsElement = $('#bands');
+const bandsElement = $('#bands-list');
 
 for (let bandName in bandNamesToFrequencyBoundsKHz) {
     const

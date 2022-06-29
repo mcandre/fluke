@@ -1,6 +1,9 @@
 <!DOCTYPE html>
     <head>
         <title>Fluke</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css"/>
@@ -16,14 +19,20 @@
             </h1>
         </nav>
         <article>
-            <div id="hud">
-                <div id="band-menu">
-                    <div id="band-options">
-                        <p><h2>Bands</h2></p>
-                        <div id="bands"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-2">
+                        <p>
+                            <h2>Bands</h2>
+                        </p>
+                        <div id="bands" class="flex">
+                            <div id="bands-list"></div>
+                        </div>
+                    </div>
+                    <div class="col-8 justify-content-center">
+                        <canvas id="impedance-plot" width="640" height="360"></canvas>
                     </div>
                 </div>
-                <canvas id="impedance-plot" width="640" height="360"></canvas>
             </div>
         </article>
         <footer>
