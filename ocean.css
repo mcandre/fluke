@@ -4,8 +4,7 @@ a:link, a:visited {
 }
 
 a:hover {
-    text-decoration: none;
-    font-style: italic;
+    text-decoration: underline;
 }
 
 body {

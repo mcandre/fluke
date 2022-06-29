@@ -11,10 +11,6 @@ nav {
     vertical-align: middle;
 }
 
-#title:hover img {
-    transform: skew(10deg, 10deg);
-}
-
 #logo {
     margin-right: 0.5em;
 }
@@ -24,7 +20,5 @@ nav {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    right: 1em;
+    padding-right: 2em;
 }
