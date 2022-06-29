@@ -17,7 +17,7 @@ let bandNamesToFrequencyBoundsKHz = {
 };
 
 let
-    maxWireLengthCM = 3048,
+    maxWireLengthCM = 4000,
     harmonics = 10,
     selectedBands = {},
     m = [],
@@ -70,6 +70,10 @@ const chartAreaBorder = {
     }
 };
 
+Chart.Tooltip.positioners.customPositioner = function(_elements, eventPosition) {
+    return eventPosition;
+};
+
 function plot() {
     generateData();
 
@@ -80,6 +84,7 @@ function plot() {
             type: 'bar',
             plugins: [chartAreaBorder],
             options: {
+                responsive: true,
                 animation: false,
                 plugins: {
                     chartAreaBorder: {
@@ -91,26 +96,32 @@ function plot() {
                         }
                     },
                     tooltip: {
-                        enabled: false
+                        intersect: false,
+                        mode: 'index',
+                        position: 'customPositioner'
                     }
                 },
                 scales: {
                     xAxes: {
+                        type: 'linear',
                         title: {
                             display: true,
-                            text: 'cm',
+                            text: 'Antenna Lead (cm)',
                             color: '#dddddd'
                         },
+                        min: 1000,
                         ticks: {
-                            autoSkip: true,
-                            maxTicksLimit: 20,
-                            color: '#dddddd'
+                            callback: function(value, index, ticks) {
+                                return value.toString();
+                            },
+                            color: '#dddddd',
                         },
                         grid: {
                             display: false
                         }
                     },
                     y: {
+                        beginAtZero: true,
                         ticks: {
                             display: false
                         },
