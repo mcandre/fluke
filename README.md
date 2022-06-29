@@ -4,6 +4,10 @@
 
 fluke assists in planning semi-random antenna wire construction. fluke warns on wire lengths featuring high impedance for the desired amateur radio bands.
 
+# HOMEPAGE
+
+https://mcandre.github.io/fluke/
+
 # LICENSE
 
 FreeBSD
