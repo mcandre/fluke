@@ -24,7 +24,7 @@ article {
 }
 
 footer {
-    padding: 2em;
+    padding: 0 1em 1em 0;
     text-align: right;
 }
 
@@ -35,7 +35,7 @@ footer {
 }
 
 .hud-element {
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
 }
 
 .hud-list label {
