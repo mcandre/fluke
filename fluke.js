@@ -49,7 +49,7 @@ function generateData() {
             halfWaveLowerCM = 14989622.9 / bandUpperBoundKHz,
             halfWaveUpperCM = 14989622.9 / bandLowerBoundKHz;
 
-        for (let i = 1; i <= harmonics; i+=2) {
+        for (let i = 1; i <= harmonics; i++) {
             const halfWaveLowerBoundCM = Math.round(i * halfWaveLowerCM);
             let halfWaveUpperBoundCM = Math.round(i * halfWaveUpperCM);
 
