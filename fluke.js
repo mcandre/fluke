@@ -13,7 +13,7 @@ let bandNamesToFrequencyBoundsKHz = {
 };
 
 let
-    maxWireLengthCM = 6000,
+    maxWireLengthCM = 5000,
     harmonics = 40,
     selectedBands = {},
     m = [],
@@ -91,11 +91,18 @@ function plot() {
         const ctx = document.getElementById('impedance-plot').getContext('2d');
 
         c = new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             plugins: [chartAreaBorder],
             options: {
                 responsive: true,
                 animation: false,
+                fill: true,
+                borderWidth: 0,
+                elements: {
+                    point:{
+                        radius: 0
+                    }
+                },
                 plugins: {
                     chartAreaBorder: {
                         borderColor: '#bbbbbb'
@@ -140,7 +147,7 @@ function plot() {
                             callback: function(value, index, ticks) {
                                 return value.toString().padStart(4, ' ');
                             },
-                            align: 'center',
+                            stepSize: 1000,
                             color: '#dddddd'
                         },
                         grid: {
