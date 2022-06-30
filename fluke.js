@@ -131,7 +131,7 @@ function plot() {
                         type: 'linear',
                         title: {
                             display: true,
-                            text: 'Antenna Lead (cm)',
+                            text: 'End Fed Antenna Element (cm)',
                             color: '#dddddd'
                         },
                         min: 0,
