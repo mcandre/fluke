@@ -24,13 +24,11 @@ article {
 }
 
 footer {
-    padding: 0 1em 1em 0;
+    padding: 2em;
     text-align: right;
 }
 
 .ocean {
-    width: 100%;
-    height: 100%;
     background-image: linear-gradient(0deg, #182848, #2980b9)
 }
 

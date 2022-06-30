@@ -13,15 +13,11 @@ let bandNamesToFrequencyBoundsKHz = {
               '2m': [  144000.0,  148000.0 ],
             'NOAA': [  162400.0,  162550.0 ],
            '1.25m': [  219000.0,  225000.0 ],
-            '70cm': [  420000.0,  450000.0 ],
-            '33cm': [  902000.0,  928000.0 ],
-            '23cm': [ 1240000.0, 1300000.0 ],
-            '13cm': [ 2300000.0, 2450000.0 ]
+            '70cm': [  420000.0,  450000.0 ]
 };
 
 let
     maxWireLengthCM = 6000,
-    harmonics = 1000,
     selectedBands = {},
     m = [],
     labels = [],
@@ -46,20 +42,25 @@ function generateData() {
             [bandLowerBoundKHz, bandUpperBoundKHz] = selectedBands[band],
             halfWaveLowerCM = 14989622.9 / bandUpperBoundKHz,
             halfWaveUpperCM = 14989622.9 / bandLowerBoundKHz;
+        let i = 1;
 
-        for (let i = 1; i <= harmonics; i++) {
+        while (true) {
             const halfWaveLowerBoundCM = Math.round(i * halfWaveLowerCM);
-            let halfWaveUpperBoundCM = Math.round(i * halfWaveUpperCM);
 
             if (halfWaveLowerBoundCM > maxWireLengthCM) {
                 break;
             }
 
-            halfWaveUpperBoundCM = Math.min(halfWaveUpperBoundCM, maxWireLengthCM);
+            const halfWaveUpperBoundCM = Math.min(
+                Math.round(i * halfWaveUpperCM),
+                maxWireLengthCM
+            );
 
             for (let j = halfWaveUpperBoundCM; j >= halfWaveLowerBoundCM; j--) {
                 m[j-1] = true;
             }
+
+            i++;
         }
     }
 }
