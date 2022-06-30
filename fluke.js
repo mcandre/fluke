@@ -17,7 +17,7 @@ let bandNamesToFrequencyBoundsKHz = {
 };
 
 let
-    maxWireLengthCM = 6000,
+    maxWireLengthCM = 4000,
     selectedBands = {},
     m = [],
     labels = [],
