@@ -1,20 +1,28 @@
 let bandNamesToFrequencyBoundsKHz = {
-     '160m': [   1800.0,   2000.0 ],
-      '80m': [   3500.0,   4000.0 ],
-      '60m': [   5102.0,   5405.3 ],
-      '40m': [   7000.0,   7300.0 ],
-      '30m': [  10100.0,  10150.0 ],
-      '20m': [  14000.0,  14350.0 ],
-      '17m': [  18068.0,  18168.0 ],
-      '15m': [  21000.0,  21450.0 ],
-      '12m': [  24890.0,  24990.0 ],
-      '10m': [  28000.0,  29700.0 ],
-       '6m': [  50000.0,  54000.0 ]
+    'Broadcast AM': [     540.0,    1700.0 ],
+            '160m': [    1800.0,    2000.0 ],
+             '80m': [    3500.0,    4000.0 ],
+             '60m': [    5102.0,    5405.3 ],
+             '40m': [    7000.0,    7300.0 ],
+             '30m': [   10100.0,   10150.0 ],
+             '20m': [   14000.0,   14350.0 ],
+             '17m': [   18068.0,   18168.0 ],
+             '15m': [   21000.0,   21450.0 ],
+             '12m': [   24890.0,   24990.0 ],
+             '10m': [   28000.0,   29700.0 ],
+              '6m': [   50000.0,   54000.0 ],
+    'Broadcast FM': [   87900.0,  107900.0 ],
+              '2m': [  144000.0,  148000.0 ],
+            'NOAA': [  162400.0,  162550.0 ],
+           '1.25m': [  219000.0,  225000.0 ],
+            '70cm': [  420000.0,  450000.0 ],
+            '33cm': [  902000.0,  928000.0 ],
+            '23cm': [ 1240000.0, 1300000.0 ]
 };
 
 let
-    maxWireLengthCM = 5000,
-    harmonics = 40,
+    maxWireLengthCM = 10000,
+    harmonics = 1000,
     selectedBands = {},
     m = [],
     labels = [],
@@ -37,13 +45,8 @@ function generateData() {
     for (let band in selectedBands) {
         const
             [bandLowerBoundKHz, bandUpperBoundKHz] = selectedBands[band],
-            quarterWaveLowerCM = 7494811.45 / bandLowerBoundKHz,
             halfWaveLowerCM = 14989622.9 / bandUpperBoundKHz,
             halfWaveUpperCM = 14989622.9 / bandLowerBoundKHz;
-
-        for (let i = 1; i <= quarterWaveLowerCM; i++) {
-            m[i-1] = true;
-        }
 
         for (let i = 1; i <= harmonics; i+=2) {
             const halfWaveLowerBoundCM = Math.round(i * halfWaveLowerCM);
@@ -143,7 +146,7 @@ function plot() {
                             callback: function(value, index, ticks) {
                                 return value.toString().padStart(4, ' ');
                             },
-                            stepSize: 500,
+                            stepSize: 1000,
                             color: '#dddddd'
                         },
                         grid: {
@@ -162,7 +165,7 @@ function plot() {
             },
             data: {
                 datasets: [{
-                    label: 'High Impedance',
+                    label: 'Impedance',
                     backgroundColor: [
                         pattern.draw('zigzag-horizontal', '#a29378')
                     ]
