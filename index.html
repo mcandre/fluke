@@ -10,7 +10,7 @@
     </head>
     <body class="w-100 h-100">
         <div class="ocean">
-            <nav class="fixed-top">
+            <nav>
                 <div>
                     <h1 id="title">
                     <a href="">
@@ -25,15 +25,21 @@
             </nav>
             <article>
                 <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-2">
-                            <h2>Bands</h2>
-                            <div id="bands">
-                                <div id="bands-list"></div>
+                    <div class="row">
+                        <div class="hud-element col-4">
+                            <div class="d-flex justify-content-center">
+                                <div>
+                                    <h2>Bands</h2>
+                                    <div>
+                                        <div id="bands-list"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-8 justify-content-center">
-                            <canvas id="impedance-plot" width="640" height="360"></canvas>
+                        <div class="hud-element col">
+                            <div class="justify-content-center">
+                                <canvas id="impedance-plot" width="640" height="360"></canvas>
+                            </div>
                         </div>
                     </div>
                 </div>

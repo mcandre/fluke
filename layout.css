@@ -20,11 +20,11 @@ nav {
 }
 
 article {
-    padding: 8em 0 1em 0;
+    margin-top: -4em;
 }
 
 footer {
-    padding: 0 1em 1em 0;
+    padding: 0 2em 1em 0;
     text-align: right;
 }
 
@@ -34,7 +34,10 @@ footer {
     background-image: linear-gradient(0deg, #182848, #2980b9)
 }
 
+.hud-element {
+    padding-bottom: 1em;
+}
 
-#bands label {
+#bands-list label {
     padding-left: 0.5em;
 }
