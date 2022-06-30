@@ -147,7 +147,7 @@ function plot() {
                             callback: function(value, index, ticks) {
                                 return value.toString().padStart(4, ' ');
                             },
-                            stepSize: 1000,
+                            stepSize: 500,
                             color: '#dddddd'
                         },
                         grid: {
