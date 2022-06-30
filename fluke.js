@@ -13,8 +13,8 @@ let bandNamesToFrequencyBoundsKHz = {
 };
 
 let
-    maxWireLengthCM = 4000,
-    harmonics = 10,
+    maxWireLengthCM = 6000,
+    harmonics = 40,
     selectedBands = {},
     m = [],
     labels = [],
@@ -25,7 +25,7 @@ function generateData() {
     labels = [];
     m = [];
 
-    for (let i = 1; i <= maxWireLengthCM; i++) {
+    for (let i = 0; i < maxWireLengthCM; i++) {
         labels.push(i);
         m.push(false);
     }
@@ -35,18 +35,32 @@ function generateData() {
     }
 
     for (let band in selectedBands) {
-        const [bandLowerBoundKHz, bandUpperBoundKHz] = selectedBands[band];
+        const
+            [bandLowerBoundKHz, bandUpperBoundKHz] = selectedBands[band],
+            quarterWaveLowerCM = 7494811.45 / bandLowerBoundKHz,
+            halfWaveLowerCM = 14989622.9 / bandUpperBoundKHz,
+            halfWaveUpperCM = 14989622.9 / bandLowerBoundKHz;
 
-        for (let i = 1; i <= harmonics; i++) {
-            const halfWaveLowerBoundKHz = Math.round(15000000 / (bandUpperBoundKHz * i));
-            let halfWaveUpperBoundKHz = Math.round(15000000 / (bandLowerBoundKHz * i));
+        for (let i = 1; i <= quarterWaveLowerCM; i++) {
+            m[i-1] = true;
+        }
 
-            if (halfWaveLowerBoundKHz <= maxWireLengthCM) {
-                halfWaveUpperBoundKHz = Math.min(halfWaveUpperBoundKHz, maxWireLengthCM);
+        for (let i = 1; i <= harmonics; i+=2) {
+            if (i % 4 == 0) {
+                continue;
+            }
 
-                for (let j = halfWaveUpperBoundKHz - 1; j >= halfWaveLowerBoundKHz; j--) {
-                    m[j] = true;
-                }
+            const halfWaveLowerBoundCM = Math.round(i * halfWaveLowerCM);
+            let halfWaveUpperBoundCM = Math.round(i * halfWaveUpperCM);
+
+            if (halfWaveLowerBoundCM > maxWireLengthCM) {
+                break;
+            }
+
+            halfWaveUpperBoundCM = Math.min(halfWaveUpperBoundCM, maxWireLengthCM);
+
+            for (let j = halfWaveUpperBoundCM; j >= halfWaveLowerBoundCM; j--) {
+                m[j-1] = true;
             }
         }
     }
@@ -120,7 +134,8 @@ function plot() {
                             text: 'Antenna Lead (cm)',
                             color: '#dddddd'
                         },
-                        min: 500,
+                        min: 0,
+                        max: maxWireLengthCM,
                         ticks: {
                             callback: function(value, index, ticks) {
                                 return value.toString().padStart(4, ' ');
