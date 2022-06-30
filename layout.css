@@ -24,7 +24,7 @@ article {
 }
 
 footer {
-    padding: 1em 1em 1em 0;
+    padding: 2em;
     text-align: right;
 }
 
@@ -38,6 +38,6 @@ footer {
     padding-bottom: 1em;
 }
 
-#bands-list label {
+.hud-list label {
     padding-left: 0.5em;
 }
