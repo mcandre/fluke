@@ -183,7 +183,7 @@ const bandsElement = $('#bands-list');
 
 for (let bandName in bandNamesToFrequencyBoundsKHz) {
     const
-        childInput = $("<input type='checkbox' id='band-" + bandName + "' value='" + bandName + "' />"),childLabel = $("<label for='band-" + bandName + "'>" + bandName + '</label>'),
+        childInput = $("<input type='checkbox' id='band-" + bandName + "' value='" + bandName + "' />"),childLabel = $("<label for='band-" + bandName + "' class='user-select-none'>" + bandName + '</label>'),
         childLineBreak = $('<br/>');
     bandsElement.append(childInput);
     bandsElement.append(childLabel);
