@@ -46,10 +46,6 @@ function generateData() {
         }
 
         for (let i = 1; i <= harmonics; i+=2) {
-            if (i % 4 == 0) {
-                continue;
-            }
-
             const halfWaveLowerBoundCM = Math.round(i * halfWaveLowerCM);
             let halfWaveUpperBoundCM = Math.round(i * halfWaveUpperCM);
 
