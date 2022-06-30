@@ -1,6 +1,4 @@
 let bandNamesToFrequencyBoundsKHz = {
-    'Broadcast AM': [     540.0,    1700.0 ],
-            '160m': [    1800.0,    2000.0 ],
              '80m': [    3500.0,    4000.0 ],
              '60m': [    5330.5,    5405.0 ],
              '40m': [    7000.0,    7300.0 ],
@@ -22,7 +20,7 @@ let bandNamesToFrequencyBoundsKHz = {
 };
 
 let
-    maxWireLengthCM = 10000,
+    maxWireLengthCM = 6000,
     harmonics = 1000,
     selectedBands = {},
     m = [],
