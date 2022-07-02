@@ -1,4 +1,5 @@
 let bandNamesToFrequencyBoundsKHz = {
+            '160m': [    1800.0,    2000.0 ],
              '80m': [    3500.0,    4000.0 ],
              '60m': [    5330.5,    5405.0 ],
              '40m': [    7000.0,    7300.0 ],
@@ -40,11 +41,40 @@ function generateData() {
     for (let band in selectedBands) {
         const
             [bandLowerBoundKHz, bandUpperBoundKHz] = selectedBands[band],
+            quarterWaveLowerCM = 7494811.45 / bandUpperBoundKHz,
+            quarterWaveUpperCM = 7494811.45 / bandLowerBoundKHz,
             halfWaveLowerCM = 14989622.9 / bandUpperBoundKHz,
-            halfWaveUpperCM = 14989622.9 / bandLowerBoundKHz;
-        let i = 1;
+            halfWaveUpperCM = 14989622.9 / bandLowerBoundKHz,
+            n = [];
 
-        while (true) {
+        for (let i = 0; i < maxWireLengthCM; i++) {
+            n[i] = true;
+        }
+
+        for (let i = 1; i <= 2; i++) {
+            const quarterWaveUpperBoundCM = Math.round(quarterWaveUpperCM / i);
+
+            if (quarterWaveUpperBoundCM < 1) {
+                break;
+            }
+
+            const quarterWaveLowerBoundCM = Math.max(
+                Math.round(quarterWaveLowerCM / i),
+                1,
+            );
+
+            for (let j = quarterWaveLowerBoundCM; j <= quarterWaveUpperBoundCM; j++) {
+                n[j-1] = false;
+            }
+        }
+
+        for (let i = 0; i < quarterWaveLowerCM; i++) {
+            if (n[i]) {
+                m[i] = true;
+            }
+        }
+
+        for (let i = 1; i <= 128; i++) {
             const halfWaveLowerBoundCM = Math.round(i * halfWaveLowerCM);
 
             if (halfWaveLowerBoundCM > maxWireLengthCM) {
@@ -56,11 +86,9 @@ function generateData() {
                 maxWireLengthCM
             );
 
-            for (let j = halfWaveUpperBoundCM; j >= halfWaveLowerBoundCM; j--) {
+            for (let j = halfWaveLowerBoundCM; j <= halfWaveUpperBoundCM; j++) {
                 m[j-1] = true;
             }
-
-            i++;
         }
     }
 }
