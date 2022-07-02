@@ -165,7 +165,7 @@ function plot() {
                         type: 'linear',
                         title: {
                             display: true,
-                            text: 'End Fed Antenna Element (cm)',
+                            text: 'EFRW component length (cm)',
                             color: '#dddddd'
                         },
                         min: 0,
