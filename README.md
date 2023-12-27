@@ -12,7 +12,7 @@ https://mcandre.github.io/fluke/
 
 # LICENSE
 
-FreeBSD
+BSD-2-Clause
 
 # INSPIRATION
 
