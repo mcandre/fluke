@@ -2,6 +2,8 @@
 
 ![flounder](fluke.png)
 
+[![license](https://img.shields.io/badge/license-BSD-3)](LICENSE.md)
+
 # SUMMARY
 
 fluke assists in planning semi-random antenna wire construction. fluke warns on wire lengths featuring high impedance for the desired amateur radio bands.
@@ -9,10 +11,6 @@ fluke assists in planning semi-random antenna wire construction. fluke warns on 
 # HOMEPAGE
 
 https://mcandre.github.io/fluke/
-
-# LICENSE
-
-BSD-2-Clause
 
 # INSPIRATION
 
