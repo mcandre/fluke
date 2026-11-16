@@ -1,6 +1,6 @@
 # fluke: A random wire antenna length calculator
 
-[![License](https://badgen.net/static/license/BSD/ab2b29)](LICENSE.md)
+[![License](https://badgen.net/static/license/BSD/ab2b29?icon=freebsd)](LICENSE.md)
 
 ![flounder](fluke.png)
 
